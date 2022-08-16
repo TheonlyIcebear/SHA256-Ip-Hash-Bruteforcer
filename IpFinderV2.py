@@ -15,10 +15,6 @@ class BruteForcer:
 	def Hash(self, data):
 		return hashlib.sha256(data.encode('utf-8')).hexdigest()
 
-	def Log(self, base, ip, c):
-		while True:
-			print(f"{base}: {c}: "+'.'.join([str(c) for c in ip])+":>"+self.Hash('.'.join([str(c) for c in ip]))+"\n")
-
 	def Bruteforce(self, ip, base):
 		time.sleep(0.1)
 		base += 1
