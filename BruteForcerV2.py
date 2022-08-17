@@ -6,14 +6,13 @@ class BruteForcer:
 		self.target = "5c826dec57ead18962537fd6d571c9ef4d6bac15441210a21ddfa894c371e13f"
 		
 		self.found = False
-		self.auth = "6cvAq9HYbse4#c#="
 		self.ip = [1, 1, 1, 1]
 		for x in list(range(255)):
 			self.ip[3] += x
 			threading.Thread(target=self.Bruteforce, args=(list(self.ip), x)).start()
 
 	def Hash(self, data):
-		return hashlib.sha256((data+self.auth).encode('utf-8')).hexdigest()
+		return hashlib.sha256(data.encode('utf-8')).hexdigest()
 
 	def Log(self, base, ip, c):
 		while True:
